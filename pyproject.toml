@@ -7,14 +7,14 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "hmm"
-authors = [{name = "Shu Zhang", email = "shu.zhang2@ucsf.edu"}]
+authors = [{name = "Yifei Chen", email = "yifei.chen@ucsf.edu"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
 dependencies = [
-    "pytest", "numpy" 
+    "pytest", "numpy", "sys", "os"
 ]
 
 [project.urls]
-Home = "https://github.com/BMI203-2024/HW6-HMM"
+Home = "https://github.com/AmazonRF/HW6-HMM"
