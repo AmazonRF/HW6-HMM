@@ -37,6 +37,19 @@ def test_mini_weather():
     assert len(viterbi_result) == 5
     assert viterbi_result == ['hot', 'cold', 'cold', 'hot', 'cold']
 
+    # two test below are test for the empty input
+    empty_input = []
+    with pytest.raises(ValueError) as e:
+        hmm_ = HiddenMarkovModel(empty_input,mini_hmm['hidden_states'], mini_hmm['prior_p'],mini_hmm['transition_p'],mini_hmm['emission_p'])
+    with pytest.raises(ValueError) as e:
+        hmm_ = HiddenMarkovModel(mini_hmm['observation_states'],mini_hmm['hidden_states'], empty_input['prior_p'],mini_hmm['transition_p'],mini_hmm['emission_p'])
+
+    #  test below are test for the wrong prior_p value
+    not_1_prior_p = [1,1,1,1,1]
+    with pytest.raises(ValueError) as e:
+        hmm_ = HiddenMarkovModel(mini_hmm['observation_states'],mini_hmm['hidden_states'], not_1_prior_p,mini_hmm['transition_p'],mini_hmm['emission_p'])
+
+
    
 
 
