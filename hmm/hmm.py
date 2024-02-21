@@ -27,6 +27,15 @@ class HiddenMarkovModel:
         self.transition_p = transition_p
         self.emission_p = emission_p
 
+        #raise error if input array is empty
+        if len(observation_states) <= 0 or len(hidden_states) <= 0 or len(prior_p) <= 0 or len(transition_p) <= 0 or len(emission_p) <= 0:
+            raise ValueError("input must be a not empty ndarray.")
+        
+        #raise error if input prior p is not sum to 1
+        if not np.isclose(np.sum(prior_p), 1):
+            raise ValueError("The sum of prior_p must be close to 1.")
+
+
 
     def forward(self, input_observation_states: np.ndarray) -> float:
         """
