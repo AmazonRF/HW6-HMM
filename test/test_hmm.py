@@ -42,10 +42,10 @@ def test_mini_weather():
     with pytest.raises(ValueError) as e:
         hmm_ = HiddenMarkovModel(empty_input,mini_hmm['hidden_states'], mini_hmm['prior_p'],mini_hmm['transition_p'],mini_hmm['emission_p'])
     with pytest.raises(ValueError) as e:
-        hmm_ = HiddenMarkovModel(mini_hmm['observation_states'],mini_hmm['hidden_states'], empty_input['prior_p'],mini_hmm['transition_p'],mini_hmm['emission_p'])
+        hmm_ = HiddenMarkovModel(mini_hmm['observation_states'],mini_hmm['hidden_states'], empty_input,mini_hmm['transition_p'],mini_hmm['emission_p'])
 
     #  test below are test for the wrong prior_p value
-    not_1_prior_p = [1,1,1,1,1]
+    not_1_prior_p = np.ones(3)
     with pytest.raises(ValueError) as e:
         hmm_ = HiddenMarkovModel(mini_hmm['observation_states'],mini_hmm['hidden_states'], not_1_prior_p,mini_hmm['transition_p'],mini_hmm['emission_p'])
 
