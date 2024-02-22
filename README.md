@@ -22,6 +22,7 @@ Ensure you have Python and NumPy installed on your system. If not, you can insta
 
 ```bash
 pip install numpy
+```
 
 
 ### Grading 
